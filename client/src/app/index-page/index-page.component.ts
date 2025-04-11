@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-index-page',
-  standalone: false,
+  standalone: true,
   templateUrl: './index-page.component.html',
   styleUrl: './index-page.component.scss'
 })

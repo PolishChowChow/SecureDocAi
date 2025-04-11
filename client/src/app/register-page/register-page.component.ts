@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-register-page',
-  standalone: false,
+  standalone: true,
   templateUrl: './register-page.component.html',
   styleUrl: './register-page.component.scss'
 })
