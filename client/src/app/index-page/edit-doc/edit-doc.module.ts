@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { EditDocComponent } from './edit-doc.component';
 import { EditDocRoutingModule } from './edit.doc.routing.module';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -9,7 +10,8 @@ import { EditDocRoutingModule } from './edit.doc.routing.module';
   declarations: [EditDocComponent],
   imports: [
     CommonModule,
-    EditDocRoutingModule
+    EditDocRoutingModule,
+    FormsModule
   ]
 })
 export class EditDocModule { }

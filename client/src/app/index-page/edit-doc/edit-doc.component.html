@@ -1,1 +1,13 @@
 <p>edit-doc works!</p>
+
+
+<div class="container">
+    <textarea [(ngModel)] = "content" (ngModelChange)="onTextChange($event)">
+    </textarea>
+    <span *ngFor="let html of contentList" [innerHTML]="html">
+    </span>
+    <span [innerHTML]="innerHTML">
+    </span>
+</div>
+<button (click)="handleClick()">Toggle</button>
+
