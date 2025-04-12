@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { IndexPageComponent } from './index-page.component';
+import { EditDocComponent } from './edit-doc.component';
 
-describe('IndexPageComponent', () => {
-  let component: IndexPageComponent;
-  let fixture: ComponentFixture<IndexPageComponent>;
+describe('EditDocComponent', () => {
+  let component: EditDocComponent;
+  let fixture: ComponentFixture<EditDocComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [IndexPageComponent]
+      declarations: [EditDocComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(IndexPageComponent);
+    fixture = TestBed.createComponent(EditDocComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
