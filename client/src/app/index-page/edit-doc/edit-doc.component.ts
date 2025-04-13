@@ -37,23 +37,21 @@ export class EditDocComponent implements AfterViewInit {
 
   handleEditorClick() {
     this.editorRef.nativeElement.contentEditable = 'true';
-    
   }
 
   toggleParser() {
     console.log('btn');
-    console.log(this.editorRef.nativeElement.innerHTML);
-    
-    
+    console.log(this.editorRef.nativeElement.innerText);
+
     console.log(this.editorRef.nativeElement.innerHTML);
     // this.editorRef.nativeElement.innerHTML = this.editorRef.nativeElement.innerHTML.replace("<div>", "")
 
-    this.editorRef.nativeElement.innerHTML += `</span><span style="color: ${this.randomizeColor()}; font-size: ${this.randomizeSize()}px;" contenteditable="true">s`;
-    this.editorRef.nativeElement.innerHTML = this.editorRef.nativeElement.innerHTML.replace("<div>", "<br />")
-    this.editorRef.nativeElement.innerHTML = this.editorRef.nativeElement.innerHTML.replace("</div>", "")
-    
+    this.editorRef.nativeElement.innerHTML += `</span><span display="inline-block" style="color: ${this.randomizeColor()}; font-size: ${this.randomizeSize()}px;" contenteditable="true">s`;
+    // this.editorRef.nativeElement.innerHTML = this.editorRef.nativeElement.innerHTML.replace("<div>", "<br />")
+    // this.editorRef.nativeElement.innerHTML = this.editorRef.nativeElement.innerHTML.replace("</div>", "")
+
     this.setCaretToEnd(this.editorRef.nativeElement);
-    this.editorRef.nativeElement.innerHTML.replace("<div>", "")
+    this.editorRef.nativeElement.innerHTML.replace('<div>', '');
   }
   randomizeSize() {
     return (Math.random() * 30 + 10).toFixed(0);
@@ -64,5 +62,21 @@ export class EditDocComponent implements AfterViewInit {
     const num3 = (Math.random() * 255).toFixed(0);
     return `rgb(${num1}, ${num2}, ${num3})`;
   }
-  randomizeFloating() {}
+  toggleFloat() {
+    const selection = window.getSelection();
+
+    if (selection && selection.rangeCount > 0) {
+      const range = selection.getRangeAt(0);
+      let caretNode = range.startContainer;
+      let el: HTMLElement;
+      if (caretNode.nodeType === Node.TEXT_NODE) {
+        if (!caretNode.parentElement) {
+          return;
+        }
+        el = caretNode.parentElement;
+        el.style.display = 'block';
+        el.style.textAlign =  el.style.textAlign === 'left' ? 'right' : 'left';
+      }
+    }
+  }
 }
