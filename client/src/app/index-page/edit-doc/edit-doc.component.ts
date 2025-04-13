@@ -26,22 +26,34 @@ export class EditDocComponent implements AfterViewInit {
     selection?.removeAllRanges();
     selection?.addRange(range);
   }
+  getCaretNode() {
+    const selection = window.getSelection();
+    const node = selection?.getRangeAt(0).startContainer;
+    return node;
+  }
   ngAfterViewInit(): void {
-    this.editorRef.nativeElement.innerHTML = `<div style="color: red" contenteditable="true">`
+    this.editorRef.nativeElement.innerHTML = `<span style="color: red" contenteditable="true">`;
   }
 
   handleEditorClick() {
     this.editorRef.nativeElement.contentEditable = 'true';
+    
   }
 
   toggleParser() {
     console.log('btn');
-    this.isFloatLeft = !this.isFloatLeft;
-    this.editorRef.nativeElement.innerHTML += `</div><div style="display: inline; color: ${this.randomizeColor()}; font-size: ${this.randomizeSize()}px; text-align: ${
-      this.isFloatLeft ? 'left' : 'right'
-    }" contenteditable="true">s`;
-    this.editorRef.nativeElement.innerHTML
+    console.log(this.editorRef.nativeElement.innerHTML);
+    
+    
+    console.log(this.editorRef.nativeElement.innerHTML);
+    // this.editorRef.nativeElement.innerHTML = this.editorRef.nativeElement.innerHTML.replace("<div>", "")
+
+    this.editorRef.nativeElement.innerHTML += `</span><span style="color: ${this.randomizeColor()}; font-size: ${this.randomizeSize()}px;" contenteditable="true">s`;
+    this.editorRef.nativeElement.innerHTML = this.editorRef.nativeElement.innerHTML.replace("<div>", "<br />")
+    this.editorRef.nativeElement.innerHTML = this.editorRef.nativeElement.innerHTML.replace("</div>", "")
+    
     this.setCaretToEnd(this.editorRef.nativeElement);
+    this.editorRef.nativeElement.innerHTML.replace("<div>", "")
   }
   randomizeSize() {
     return (Math.random() * 30 + 10).toFixed(0);
