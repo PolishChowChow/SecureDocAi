@@ -6,6 +6,7 @@ import { FormsModule } from '@angular/forms';
 import { ToolbarComponent } from './toolbar/toolbar.component';
 import { ApplyStylesComponent } from './toolbar/apply-styles/apply-styles.component';
 import { ActionBtnComponent } from './toolbar/action-btn/action-btn.component';
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
   declarations: [
@@ -14,6 +15,6 @@ import { ActionBtnComponent } from './toolbar/action-btn/action-btn.component';
     ApplyStylesComponent,
     ActionBtnComponent,
   ],
-  imports: [CommonModule, EditDocRoutingModule, FormsModule],
+  imports: [CommonModule, EditDocRoutingModule, FormsModule, MatIconModule],
 })
 export class EditDocModule {}
