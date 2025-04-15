@@ -1,0 +1,9 @@
+@use '@angular/material' as mat;
+
+header {
+    @include mat.theme((
+        color: mat.$violet-palette,
+        typography: Roboto,
+        density: 0,
+    ))
+}

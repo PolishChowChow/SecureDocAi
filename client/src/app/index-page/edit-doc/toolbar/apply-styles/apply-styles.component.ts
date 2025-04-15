@@ -1,11 +1,12 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
-  selector: 'app-apply-styles',
+  selector: 'apply-styles',
   standalone: false,
   templateUrl: './apply-styles.component.html',
   styleUrl: './apply-styles.component.scss'
 })
 export class ApplyStylesComponent {
-
+  @Input()
+  onClick!: () => void;
 }
